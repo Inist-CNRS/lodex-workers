@@ -1,7 +1,7 @@
 {
   "name": "lodex-processing",
   "version": "1.0.0",
-  "description": "ezs dedicated processing for Lodex",
+  "description": "ezs dedicated statements for Lodex",
   "directories": {
     "test": "test"
   },
@@ -42,12 +42,13 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.3",
-    "ezs": "^4.7.3",
     "from": "^0.1.7",
     "istanbul": "^0.4.5",
     "mocha": "^3.5.3"
   },
   "peerDependencies": {
-    "ezs": "^4.0.0"
+    "ezs": "^5.1.1",
+    "ezs-basics": "^3.6.0"
   }
+
 }
