@@ -1,16 +1,13 @@
 # A dedicated ezs server for Lodex
 
 with docker 
-```
-$ make build 
-$ make run
 
-```
+    $ make build 
+    $ make run
 
 or with ezmaster 
 
-
-# **********AND*** A collection of `ezs` functions.
+# ****\*\*****AND\*\*\* A collection of `ezs` functions.
 
 This package cannot be used alone. [ezs](https://www.npmjs.com/package/ezs) has to be installed
 
@@ -39,4 +36,4 @@ process.stdin
 
 Take `Object` and transform all key ending byu number on array.
 
-Returns **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)**
+Returns **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
