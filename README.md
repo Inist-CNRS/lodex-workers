@@ -7,7 +7,7 @@ with docker
 
 or with ezmaster 
 
-# ****\*\*****AND\*\*\* A collection of `ezs` functions.
+# \***\*\*\*\*\***AND\*\*\* A collection of `ezs` functions.
 
 This package cannot be used alone. [ezs](https://www.npmjs.com/package/ezs) has to be installed
 
