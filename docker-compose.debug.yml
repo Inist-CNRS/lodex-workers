@@ -1,0 +1,15 @@
+version: '3'
+services:
+    lodex-processing:
+        container_name: lodex-processing
+        build:
+            context: .
+            args:
+                - http_proxy
+                - https_proxy
+        image: lodex-processing:2.0.0
+        environment:
+            - http_proxy
+            - https_proxy
+        ports:
+            - "31976:31976"

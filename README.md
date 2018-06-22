@@ -3,7 +3,7 @@
 with docker 
 
     $ make build 
-    $ make run
+    $ make run-debug
 
 or with ezmaster 
 
