@@ -10,7 +10,7 @@ COPY ./src /app/src
 
 # Install peerDependencies
 RUN npm run build && \
-    npm install -g ezs@5.4.0 && \
+    npm install -g ezs@5.4.2 && \
     npm install -g ezs-basics@3.6.2 && \
     npm link
 
@@ -20,7 +20,8 @@ RUN echo '{ \
   "configPath": "/app/config.json" \
 }' > /etc/ezmaster.json
 
+ENV DEBUG ezs
 ENV NODE_ENV production
 EXPOSE 31976 
-ENTRYPOINT ["npx", "ezs"]
+ENTRYPOINT ["ezs"]
 CMD ["--daemon"]
