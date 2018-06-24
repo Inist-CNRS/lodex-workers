@@ -1,1 +1,4 @@
- {}
+ {
+     "EZS_VERBOSE": true,
+     "NODE_ENV": "production"
+ }
