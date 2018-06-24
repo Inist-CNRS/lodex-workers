@@ -1,6 +1,6 @@
 {
     "name": "lodex-processing",
-    "version": "2.0.2",
+    "version": "3.0.0",
     "description": "ezs dedicated server for Lodex",
     "directories": {
         "test": "test"
@@ -27,8 +27,6 @@
         "version": "npm run insertversion:readme && npm run insertversion:makefile && npm run insertversion:docker && git add README.md Makefile docker-compose.debug.yml",
         "postversion": "git push && git push --tags"
     },
-    "devDependencies": {
-    },
-    "peerDependencies": {
-    }
+    "devDependencies": {},
+    "peerDependencies": {}
 }
