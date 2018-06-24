@@ -1,5 +1,5 @@
 {
-    "name": "lodex-processing",
+    "name": "lodex-workers",
     "version": "3.0.0",
     "description": "ezs dedicated server for Lodex",
     "directories": {
@@ -7,7 +7,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/Inist-CNRS/lodex-processing.git"
+        "url": "git+https://github.com/Inist-CNRS/lodex-workers.git"
     },
     "keywords": [
         "ezs"
@@ -15,9 +15,9 @@
     "author": "Nicolas Thouvenin <nthouvenin@gmail.com>",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/Inist-CNRS/lodex-processing/issues"
+        "url": "https://github.com/Inist-CNRS/lodex-workers/issues"
     },
-    "homepage": "https://github.com/Inist-CNRS/lodex-processing#readme",
+    "homepage": "https://github.com/Inist-CNRS/lodex-workers#readme",
     "dependencies": {},
     "main": "./lib/index.js",
     "scripts": {
