@@ -1,6 +1,6 @@
 FROM node:8.11.1-alpine
 
-RUN npm install -g ezs@5.4.2 && \
+RUN npm install -g ezs@5.4.3 && \
     npm install -g ezs-basics@3.6.2 && \
     npm install -g ezs-lodex@1.0.0 
 
