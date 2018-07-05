@@ -15,7 +15,7 @@ COPY config.json /app
 COPY config2vars /app
 COPY docker-entrypoint.sh /app
 
-RUN npm install ezs@5.4.7
+RUN npm install ezs@5.4.9
 RUN npm install ezs-basics@3.6.2
 RUN npm install ezs-mapreduce@1.0.0
 RUN npm install ezs-analytics@1.0.1
