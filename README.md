@@ -1,9 +1,8 @@
 # A dedicated ezs server for Lodex
 
-with docker 
+with docker
 
-    $ make build 
-    $ make run-debug
+    make build
+    make run-debug
 
-or with ezmaster 
-
+or with [ezmaster](https://github.com/Inist-CNRS/ezmaster)
