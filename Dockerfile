@@ -1,12 +1,13 @@
 FROM node:8.9.1
 
-RUN mkdir /app
+RUN mkdir -p /app/data
 WORKDIR /app
 
 # see https://github.com/Inist-CNRS/ezmaster
 RUN echo '{ \
   "httpPort": 31976, \
-  "configPath": "/config.json" \
+  "configPath": "/config.json", \
+  "dataPath": "/app/data" \
 }' > /etc/ezmaster.json
 
 EXPOSE 31976
