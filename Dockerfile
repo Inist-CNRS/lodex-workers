@@ -16,12 +16,12 @@ COPY config.json /app
 COPY config2vars /app
 COPY docker-entrypoint.sh /app
 
-RUN npm install ezs@6.1.0
+RUN npm install ezs@6.3.0
 RUN npm install ezs-basics@3.6.7
 RUN npm install ezs-mapreduce@1.0.0
 RUN npm install ezs-analytics@1.8.1
-RUN npm install ezs-istex@5.0.2
-RUN npm install ezs-lodex@1.1.1
+RUN npm install ezs-istex@5.0.4
+RUN npm install ezs-lodex@1.1.2
 
 ENTRYPOINT ["/app/docker-entrypoint.sh"]
 CMD ["--daemon"]
