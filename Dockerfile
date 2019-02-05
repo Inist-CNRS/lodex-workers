@@ -11,17 +11,15 @@ RUN echo '{ \
 }' > /etc/ezmaster.json
 
 EXPOSE 31976
+COPY data/ /app/data
 COPY package.json /app
 COPY config.json /app
 COPY config2vars /app
+COPY installPackages /app
 COPY docker-entrypoint.sh /app
 
-RUN npm install ezs@6.3.0
-RUN npm install ezs-basics@3.6.7
-RUN npm install ezs-mapreduce@1.0.0
-RUN npm install ezs-analytics@1.8.1
-RUN npm install ezs-istex@5.0.4
-RUN npm install ezs-lodex@1.1.2
+RUN npm install ezs@7.1.1
+RUN npm install npm-programmatic
 
 ENTRYPOINT ["/app/docker-entrypoint.sh"]
-CMD ["--daemon"]
+CMD ["--daemon", "/app/data"]
