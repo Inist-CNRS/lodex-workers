@@ -3,7 +3,7 @@
         "CRON_VERBOSE": true,
         "EZS_VERBOSE": true,
         "NODE_ENV": "production",
-        "GIT_SYNC_URL": "https://github.com/Inist-CNRS/lodex-extented"
+        "#GIT_SYNC_URL": "https://github.com/Inist-CNRS/lodex-extented"
     },
     "packages": [
         "ezs-basics@3.6.7",
