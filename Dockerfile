@@ -20,7 +20,7 @@ COPY gitsync /app
 COPY installPackages /app
 COPY docker-entrypoint.sh /app
 
-RUN npm install ezs@7.1.1
+RUN npm install ezs@7.1.2
 RUN npm install npm-programmatic
 RUN npm install shelljs
 RUN npm install node-schedule
