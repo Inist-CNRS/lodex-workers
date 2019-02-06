@@ -1,10 +1,9 @@
 #!/usr/bin/env node
 
-const config = require('./config.json');
+const { packages } = require('./config.json');
 const npm = require('npm-programmatic');
 
-console.log("Installing packages...")
-npm.install(config.packages || [], { output: true })
+npm.install(packages || [], { output: true })
     .then(() => console.log("All packages installed."))
     .catch((e) => console.error('Unable to install package', e));
 
