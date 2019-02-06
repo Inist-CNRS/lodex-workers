@@ -12,7 +12,6 @@ RUN echo '{ \
 
 EXPOSE 31976
 COPY data/ /app/data
-COPY package.json /app
 COPY config.json /app
 COPY config2vars /app
 COPY crontab /app
@@ -20,7 +19,8 @@ COPY gitsync /app
 COPY installPackages /app
 COPY docker-entrypoint.sh /app
 
-RUN npm install ezs@7.1.2
+RUN npm init -y
+RUN npm install ezs@7.1.4
 RUN npm install npm-programmatic
 RUN npm install shelljs
 RUN npm install node-schedule
