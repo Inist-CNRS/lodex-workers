@@ -1,7 +1,9 @@
 {
     "environnement": {
+        "CRON_VERBOSE": true,
         "EZS_VERBOSE": true,
-        "NODE_ENV": "production"
+        "NODE_ENV": "production",
+        "GIT_SYNC_URL": "https://github.com/Inist-CNRS/lodex-extented"
     },
     "packages": [
         "ezs-basics@3.6.7",
@@ -9,5 +11,11 @@
         "ezs-analytics@1.8.1",
         "ezs-istex@5.0.4",
         "ezs-lodex@1.1.2"
+    ],
+    "tasks": [
+        {
+            "when": "30 * * * *",
+            "execute": "/app/gitsync $GIT_SYNC_URL"
+        }
     ]
 }

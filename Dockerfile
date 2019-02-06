@@ -1,4 +1,4 @@
-FROM node:8.9.1
+FROM node:10
 
 RUN mkdir -p /app/data
 WORKDIR /app
@@ -15,11 +15,15 @@ COPY data/ /app/data
 COPY package.json /app
 COPY config.json /app
 COPY config2vars /app
+COPY crontab /app
+COPY gitsync /app
 COPY installPackages /app
 COPY docker-entrypoint.sh /app
 
 RUN npm install ezs@7.1.1
 RUN npm install npm-programmatic
+RUN npm install shelljs
+RUN npm install node-schedule
 
 ENTRYPOINT ["/app/docker-entrypoint.sh"]
 CMD ["--daemon", "/app/data"]

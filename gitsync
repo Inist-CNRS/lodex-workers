@@ -1,0 +1,6 @@
+#!/bin/bash
+
+test -d /app/data/.git || (cd /app/data && git init && git remote add origin "$1")
+cd /app/data/ && git -c core.askpass=true fetch --all && git reset --hard origin/master
+cd /app/data/ && (git -c core.askpass=true ls-remote -q "$1" >/dev/null || rm -rf /app/data/.git)
+
