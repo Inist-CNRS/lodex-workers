@@ -1,6 +1,6 @@
 {
     "name": "lodex-workers",
-    "version": "5.0.4",
+    "version": "5.0.5",
     "description": "ezs dedicated server for Lodex",
     "directories": {
         "test": "test"
