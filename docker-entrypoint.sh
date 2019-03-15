@@ -1,7 +1,12 @@
 #!/bin/bash
 
+cd /app
+
 echo "Installing packages..."
 /app/installPackages
+
+echo "Rebuild packages..."
+npm rebuild
 
 echo "Loading environnment variables..."
 /app/config2vars > /app/config.env
