@@ -9,7 +9,7 @@
         "ezs-basics@3.6.7",
         "ezs-analytics@1.8.1",
         "ezs-istex@5.0.4",
-        "ezs-lodex@.2.0.8"
+        "ezs-lodex@2.0.8"
     ],
     "tasks": [
         {
