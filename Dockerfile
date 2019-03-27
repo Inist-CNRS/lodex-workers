@@ -20,7 +20,7 @@ COPY installPackages /app
 COPY docker-entrypoint.sh /app
 
 RUN npm init -y
-RUN npm install ezs@9.0.0
+RUN npm install ezs@9.1.0
 RUN npm install npm-programmatic
 RUN npm install shelljs
 RUN npm install node-schedule
