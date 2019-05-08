@@ -6,10 +6,7 @@
         "#GIT_SYNC_URL": "https://github.com/Inist-CNRS/lodex-extented"
     },
     "packages": [
-        "ezs-basics@3.6.7",
-        "ezs-analytics@1.8.1",
-        "ezs-istex@5.0.4",
-        "ezs-lodex@2.0.9"
+        "ezs-basics@3.8.1"
     ],
     "tasks": [
         {
