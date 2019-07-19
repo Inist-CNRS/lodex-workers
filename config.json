@@ -7,17 +7,17 @@
         "GIT_BRANCH": "v3"
     },
     "packages": [
-        "ezs-analytics": "1.8.1",
-        "ezs-basics": "3.9.0",
-        "ezs-booster": "1.1.0",
-        "ezs-istex": "6.2.0",
-        "ezs-lodex": "5.4.1",
-        "ezs-sparql": "1.0.0"
+        "ezs-analytics@1.8.1",
+        "ezs-basics@3.9.0",
+        "ezs-booster@1.1.0",
+        "ezs-istex@6.2.0",
+        "ezs-lodex@5.4.1",
+        "ezs-sparql@1.0.0"
     ],
     "tasks": [
         {
             "when": "30 * * * *",
-            "execute": "/app/gitsync $GIT_REPOSITORY $GIT_BRANCH "
+            "execute": "/app/gitsync $GIT_REPOSITORY $GIT_BRANCH"
         }
     ]
 }
