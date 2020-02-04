@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-DIRECTORY=www
+DIRECTORY=public
 LOCATION=$(cd `dirname $0` && pwd)
 REPOSITORY=${1:?the first argument of the command should be the URL of a git repository.}
 BRANCH=${2:-master}

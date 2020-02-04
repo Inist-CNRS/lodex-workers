@@ -1,6 +1,6 @@
 FROM node:12
 
-RUN mkdir -p /app/www
+RUN mkdir -p /app/public
 WORKDIR /app
 EXPOSE 31976
 
@@ -8,7 +8,7 @@ EXPOSE 31976
 RUN echo '{ \
   "httpPort": 31976, \
   "configPath": "/app/config.json", \
-  "dataPath": "/app/www" \
+  "dataPath": "/app/public" \
 }' > /etc/ezmaster.json
 
 RUN npm init -y
@@ -23,7 +23,7 @@ COPY crontab /app
 COPY gitsync /app
 COPY installPackages /app
 COPY docker-entrypoint.sh /app
-COPY www/ /app/www
+COPY public/ /app/public
 
 ENTRYPOINT ["/app/docker-entrypoint.sh"]
-CMD ["--daemon", "/app/www"]
+CMD ["--daemon", "/app/public"]
