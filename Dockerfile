@@ -11,11 +11,8 @@ RUN echo '{ \
   "dataPath": "/app/public" \
 }' > /etc/ezmaster.json
 
-RUN npm init -y
-RUN npm install @ezs/core@1.1.7
-RUN npm install npm-programmatic
-RUN npm install shelljs
-RUN npm install node-schedule
+COPY package.json /app
+RUN npm install --production && npm cache clean --force
 
 COPY config.json /app
 COPY config2vars /app
@@ -26,4 +23,3 @@ COPY docker-entrypoint.sh /app
 COPY public/ /app/public
 
 ENTRYPOINT ["/app/docker-entrypoint.sh"]
-CMD ["--daemon", "/app/public"]

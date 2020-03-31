@@ -19,4 +19,4 @@ echo "Starting cron..."
 sleep 2
 
 echo "Starting ezs..."
-exec npx ezs $*
+exec npm start
