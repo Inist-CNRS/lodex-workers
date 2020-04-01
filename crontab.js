@@ -1,8 +1,8 @@
-#!/usr/bin/env node
-
 const schedule = require('node-schedule');
 const shell    = require('shelljs');
 const { tasks, environnement } = require('./config.json');
+
+console.log("Starting cron with config.json tasks.");
 const env = Object.assign(process.env, environnement);
 const run = execute => () => shell.exec(execute, {
     silent: !process.env.CRON_VERBOSE,
