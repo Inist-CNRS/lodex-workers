@@ -15,11 +15,10 @@ COPY package.json /app
 RUN npm install --production && npm cache clean --force
 
 COPY config.json /app
-COPY config2vars /app
-COPY crontab /app
+COPY generate-dotenv.js /app
+COPY crontab.js /app
 COPY gitsync /app
-COPY installPackages /app
-COPY docker-entrypoint.sh /app
+COPY install-packages.js /app
 COPY public/ /app/public
 
-ENTRYPOINT ["/app/docker-entrypoint.sh"]
+CMD [ "npm", "start" ]
