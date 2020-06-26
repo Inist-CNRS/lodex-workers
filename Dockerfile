@@ -1,8 +1,7 @@
 FROM node:12
 RUN apt-get update -y
-RUN apt-get install -y tmpreaper
+RUN apt-get install -y tmpreaper sudo
 
-RUN mkdir -p /app/public
 WORKDIR /app
 EXPOSE 31976
 
@@ -22,5 +21,9 @@ COPY crontab.js /app
 COPY gitsync /app
 COPY install-packages.js /app
 COPY public/ /app/public
-
+RUN chown -R daemon:daemon /app
+COPY docker-entrypoint.sh /app
+RUN mkdir -p /app/public /sbin/.npm /sbin/.config /usr/sbin/.npm /usr/sbin/.config \
+    && chown -R daemon:daemon /app /sbin/.npm /sbin/.config /usr/sbin/.npm /usr/sbin/.config
+ENTRYPOINT [ "/app/docker-entrypoint.sh" ]
 CMD [ "npm", "start" ]
