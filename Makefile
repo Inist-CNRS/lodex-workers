@@ -9,4 +9,4 @@ build: ## build the docker image locally
 	@docker-compose -f ./docker-compose.debug.yml build
 
 run-debug: ## to debug locally
-	@docker-compose -f ./docker-compose.debug.yml up
+	@docker-compose -f ./docker-compose.debug.yml up --force-recreate
