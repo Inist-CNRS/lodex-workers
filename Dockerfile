@@ -1,4 +1,6 @@
 FROM node:12
+RUN apt-get update -y
+RUN apt-get install -y tmpreaper
 
 RUN mkdir -p /app/public
 WORKDIR /app
