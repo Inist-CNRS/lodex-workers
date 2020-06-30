@@ -1,3 +1,4 @@
 #!/bin/sh
-chown -R daemon:daemon /app /tmp
-exec sudo -u daemon -g daemon $*
+mkdir -p /sbin/.npm /sbin/.config
+chown -R daemon:daemon /app /tmp /sbin/.npm /sbin/.config
+exec su-exec daemon:daemon $*

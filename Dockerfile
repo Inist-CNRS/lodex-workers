@@ -1,29 +1,25 @@
-FROM node:12
-RUN apt-get update -y
-RUN apt-get install -y tmpreaper sudo
-
+FROM node:12-alpine AS build
+RUN apk add --no-cache make gcc g++ python
+RUN mkdir -p /app/public
+COPY package.json /app
 WORKDIR /app
-EXPOSE 31976
+RUN npm install --production && npm cache clean --force
 
+FROM node:12-alpine AS release
+RUN apk add --no-cache git su-exec
+COPY --from=build /app /app
 # see https://github.com/Inist-CNRS/ezmaster
 RUN echo '{ \
   "httpPort": 31976, \
   "configPath": "/app/config.json", \
   "dataPath": "/app/public" \
 }' > /etc/ezmaster.json
-
-COPY package.json /app
-RUN npm install --production && npm cache clean --force
-
-COPY config.json /app
-COPY generate-dotenv.js /app
-COPY crontab.js /app
-COPY gitsync /app
-COPY install-packages.js /app
-COPY public/ /app/public
-RUN chown -R daemon:daemon /app
-COPY docker-entrypoint.sh /app
-RUN mkdir -p /app/public /sbin/.npm /sbin/.config /usr/sbin/.npm /usr/sbin/.config \
-    && chown -R daemon:daemon /app /sbin/.npm /sbin/.config /usr/sbin/.npm /usr/sbin/.config
+WORKDIR /app
+COPY config.json crontab.js generate-dotenv.js gitsync gitsyncdir docker-entrypoint.sh public /app/
+# To be compilant with Debian/Ubuntu container (and so with ezmaster-webdav)
+RUN sed -i -e "s/daemon:x:2:2/daemon:x:1:1/" /etc/passwd && \
+    sed -i -e "s/daemon:x:2:/daemon:x:1:/" /etc/group && \
+    sed -i -e "s/bin:x:1:1/bin:x:2:2/" /etc/passwd && \
+    sed -i -e "s/bin:x:1:/bin:x:2:/" /etc/group 
 ENTRYPOINT [ "/app/docker-entrypoint.sh" ]
 CMD [ "npm", "start" ]

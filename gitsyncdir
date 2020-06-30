@@ -1,0 +1,30 @@
+#!/bin/sh
+
+# gitget  https://github.com/Inist-CNRS/lodex-extended public/resources /tmp/truc
+
+REPOSITORY=${1:?the first argument of the command should be the URL of a git repository.}
+BRANCH=${2:-master}
+SOURCE=$3
+TARGET=${4:-/app/public}
+
+LOCATION=$(dirname $TARGET)
+DIRECTORY=$(basename $TARGET)
+
+
+echo "Syncing $LOCATION/$DIRECTORY from $REPOSITORY with $BRANCH"
+
+(test ! -d "$LOCATION/$DIRECTORY/" && mkdir -p "$LOCATION/$DIRECTORY/")
+test -d "$LOCATION/$DIRECTORY/.git" &&  rm -rf "$LOCATION/$DIRECTORY/.git"
+cd "$LOCATION/$DIRECTORY/"
+git init
+git remote add origin "$REPOSITORY"
+
+git config core.sparseCheckout true
+echo $SOURCE >> .git/info/sparse-checkout
+
+git -c core.askpass=true fetch --all
+git reset --hard "origin/$BRANCH"
+
+mv $SOURCE/* $LOCATION/$DIRECTORY/
+rmdir $SOURCE
+rm -rf "$LOCATION/$DIRECTORY/.git"
