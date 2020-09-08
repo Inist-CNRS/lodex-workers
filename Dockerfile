@@ -1,12 +1,12 @@
 FROM node:12-alpine AS build
-RUN apk add --no-cache make gcc g++ python
+RUN apk add --no-cache make gcc g++ python bash git openssh
 RUN mkdir -p /app/public
 COPY package.json /app
 WORKDIR /app
 RUN npm install --production && npm cache clean --force
 
 FROM node:12-alpine AS release
-RUN apk add --no-cache git su-exec
+RUN apk add --no-cache su-exec bash git openssh
 COPY --from=build /app /app
 # see https://github.com/Inist-CNRS/ezmaster
 RUN echo '{ \
