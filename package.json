@@ -1,6 +1,6 @@
 {
 				"name": "lodex-workers",
-				"version": "7.2.8",
+				"version": "7.2.9",
 				"description": "ezs dedicated server for Lodex",
 				"directories": {
 								"test": "test"
