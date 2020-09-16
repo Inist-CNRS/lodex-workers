@@ -18,7 +18,7 @@ RUN echo '{ \
       "httpPort": 31976, \
       "configPath": "/app/config.json", \
       "dataPath": "/app/public" \
-    }' > /etc/ezmaster.json éé \
+    }' > /etc/ezmaster.json && \
     apk add --no-cache su-exec && \
     sed -i -e "s/daemon:x:2:2/daemon:x:1:1/" /etc/passwd && \
     sed -i -e "s/daemon:x:2:/daemon:x:1:/" /etc/group && \
