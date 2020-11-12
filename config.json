@@ -1,5 +1,7 @@
 {
 	"environnement": {
+		"EZS_TITLE": "lodex-workers",
+		"EZS_DESCRIPTION": "web services for Lodex",
 		"EZS_VERBOSE": true,
 		"EZS_CONCURRENCY": 4,
 		"EZS_NSHARDS": 32,
