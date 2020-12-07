@@ -20,7 +20,7 @@
 				"homepage": "https://github.com/Inist-CNRS/lodex-workers#readme",
 				"dependencies": {
 								"@ezs/analytics": "1.9.3",
-								"@ezs/basics": "1.6.5",
+								"@ezs/basics": "1.7.0",
 								"@ezs/booster": "1.2.4",
 								"@ezs/core": "1.19.0",
 								"@ezs/istex": "1.1.6",
