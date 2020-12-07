@@ -5,6 +5,7 @@ RUN mkdir -p /app/public && \
     apk add --no-cache --virtual .build-deps make gcc g++ python bash git openssh && \
     npm install --production && \
 	npm cache clean --force && \
+	npm prune --production && \
 	apk del --no-cache .build-deps
 
 FROM node:12-alpine AS release
