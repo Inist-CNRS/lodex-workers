@@ -27,7 +27,6 @@ git -c core.askpass=true fetch --all
 git reset --hard "origin/$BRANCH"
 rm -rf "$WORKDIR/.git"
 
-(test -d "$TARGET/" && rm -rf "$TARGET/" )
+(test ! -d "$TARGET/" && mkdir -p "$TARGET/")
 
-mkdir -p $TARGET
-mv $WORKDIR/$SOURCE/* $TARGET/
+cp -Rf $WORKDIR/$SOURCE/* $TARGET/
