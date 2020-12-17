@@ -10,12 +10,13 @@ TARGET=${4:-/app/public}
 LOCATION=$(dirname $TARGET)
 DIRECTORY=$(basename $TARGET)
 
+WORKDIR=/tmp/gitsyncdir
 
-echo "Syncing $LOCATION/$DIRECTORY from $REPOSITORY with $BRANCH"
+echo "Syncing $WORKDIR from $REPOSITORY with $BRANCH"
 
-(test ! -d "$LOCATION/$DIRECTORY/" && mkdir -p "$LOCATION/$DIRECTORY/")
-test -d "$LOCATION/$DIRECTORY/.git" &&  rm -rf "$LOCATION/$DIRECTORY/.git"
-cd "$LOCATION/$DIRECTORY/"
+(test ! -d "$WORKDIR/" && mkdir -p "$WORKDIR/")
+test -d "$WORKDIR/.git" &&  rm -rf "$WORKDIR/.git"
+cd "$WORKDIR/"
 git init
 git remote add origin "$REPOSITORY"
 
@@ -24,7 +25,9 @@ echo $SOURCE >> .git/info/sparse-checkout
 
 git -c core.askpass=true fetch --all
 git reset --hard "origin/$BRANCH"
+rm -rf "$WORKDIR/.git"
 
-mv $SOURCE/* $LOCATION/$DIRECTORY/
-rmdir $SOURCE
-rm -rf "$LOCATION/$DIRECTORY/.git"
+(test -d "$TARGET/" && rm -rf "$TARGET/" )
+
+mkdir -p $TARGET
+mv $WORKDIR/$SOURCE/* $TARGET/

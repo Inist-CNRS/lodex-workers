@@ -9,9 +9,10 @@ const run = execute => () => shell.exec(execute, {
     env,
 });
 
-tasks.map(({ when, execute }) => schedule.scheduleJob(when, run(execute)));
+const crontab = tasks.filter((t) => (t.when && t.execute));
+crontab.map(({ when, execute }) => schedule.scheduleJob(when, run(execute)));
 
-tasks.map(({ execute }) => run(execute)());
+crontab.map(({ execute }) => run(execute)());
 /*
 WHEN FORMAT
 
