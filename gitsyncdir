@@ -1,6 +1,8 @@
 #!/bin/sh
 
-# gitget  https://github.com/Inist-CNRS/lodex-extended public/resources /tmp/truc
+# Examples :
+# ./gitsyncdir "https://github.com/Inist-CNRS/lodex-extended" "origin/rename-ws" "public/resources" /tmp/truc
+# ./gitsyncdir "https://github.com/Inist-CNRS/lodex-extented" "v6.10.0" "public/webservices/netscity" $PWD/public
 
 REPOSITORY=${1:?the first argument of the command should be the URL of a git repository.}
 BRANCH=${2:-master}
@@ -14,8 +16,8 @@ WORKDIR=/tmp/gitsyncdir
 
 echo "Syncing $WORKDIR from $REPOSITORY with $BRANCH"
 
-(test ! -d "$WORKDIR/" && mkdir -p "$WORKDIR/")
-test -d "$WORKDIR/.git" &&  rm -rf "$WORKDIR/.git"
+(test -d "$WORKDIR" && rm -rf "$WORKDIR")
+mkdir -p "$WORKDIR/"
 cd "$WORKDIR/"
 git init
 git remote add origin "$REPOSITORY"
@@ -24,9 +26,11 @@ git config core.sparseCheckout true
 echo $SOURCE >> .git/info/sparse-checkout
 
 git -c core.askpass=true fetch --all
-git reset --hard "origin/$BRANCH"
+git reset --hard "$BRANCH"
 rm -rf "$WORKDIR/.git"
 
 (test ! -d "$TARGET/" && mkdir -p "$TARGET/")
 
 cp -Rf $WORKDIR/$SOURCE/* $TARGET/
+
+rm -rf "$WORKDIR"
