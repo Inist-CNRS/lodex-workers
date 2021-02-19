@@ -13,14 +13,24 @@
 		"GIT_BRANCH": "v6.10.0",
 		"GIT_DIRECTORY": "public/webservices"
 	},
-	"tasks": [
+	"#DISABLED# packages": [
+		"ezs-teeftfr@3.1.2",
+		"@ezs/booster@1.2.4",
+		"@ezs/istex@1.1.6",
+		"@ezs/lodex@1.7.0",
+		"@ezs/loterre@1.0.26",
+		"@ezs/sparql@1.0.17",
+		"@ezs/transformers@1.2.4"
+	],
+	"#DISABLED# tasks": [
 		{
-            "#Disabled when": "30 * * * *",
-            "#Disabled execute": "/app/gitsync $GIT_REPOSITORY $GIT_BRANCH"
+            "when": "30 * * * *",
+            "execute": "/app/gitsync $GIT_REPOSITORY $GIT_BRANCH"
         },
 		{
-            "#Disable when": "0 0 0 31 1 *",
-            "#Disable execute": "/app/gitsyncdir $GIT_REPOSITORY $GIT_BRANCH $GIT_DIRECTORY "
+            "when": "0 0 0 31 1 *",
+            "execute": "/app/gitsyncdir $GIT_REPOSITORY $GIT_BRANCH $GIT_DIRECTORY "
         }
 	]
+
 }
