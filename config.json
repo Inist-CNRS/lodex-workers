@@ -14,8 +14,9 @@
 		"GIT_DIRECTORY": "public/webservices"
 	},
 	"#DISABLED# packages": [
+		"@ezs/analytics@1.11.2",
+		"@ezs/basics@1.8.0",
 		"ezs-teeftfr@3.1.2",
-		"@ezs/booster@1.2.4",
 		"@ezs/istex@1.1.6",
 		"@ezs/lodex@1.7.0",
 		"@ezs/loterre@1.0.26",
