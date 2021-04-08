@@ -12,3 +12,5 @@ Dockerfile
 !gitsyncdir*
 !package.json
 !public/
+!chmod-all
+!chmod-one
