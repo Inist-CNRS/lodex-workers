@@ -1,4 +1,4 @@
-FROM node:12-alpine
+FROM node:14-alpine
 WORKDIR /app
 # see .dockerignore to know all copied files
 COPY . /app/
